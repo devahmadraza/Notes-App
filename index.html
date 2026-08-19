@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <header class="header">
+            <h1>My Notes</h1>
+            <p>Write, save and manage your notes.</p>
+        </header>
+
+
+        <!-- Add Note -->
+        <section class="note-form">
+
+            <input
+                type="text"
+                class="title-input"
+                placeholder="Note title..."
+            >
+
+            <textarea
+                class="description-input"
+                placeholder="Write your note..."
+            ></textarea>
+
+            <button class="add-btn">
+                Add Note
+            </button>
+
+            <p class="error"></p>
+
+        </section>
+
+
+        <!-- Search -->
+        <section class="search-section">
+
+            <input
+                type="text"
+                class="search-input"
+                placeholder="Search notes..."
+            >
+
+        </section>
+
+
+        <!-- Note information -->
+        <div class="note-info">
+            <span>Total Notes: <strong class="note-count">0</strong></span>
+        </div>
+
+
+        <!-- Notes -->
+        <section class="notes-container">
+
+            <p class="empty-message">
+                No notes available.
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
