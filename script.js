@@ -1,4 +1,3 @@
-
 const titleInput = document.querySelector('.title-input')
 const descriptionInput = document.querySelector('.description-input')
 const addBtn = document.querySelector('.add-btn')
@@ -8,9 +7,14 @@ const noteCount = document.querySelector('.note-count')
 const notesContainer = document.querySelector('.notes-container')
 
 
-const notes = []
+const savedNotes=localStorage.getItem('notes')
+const notes=savedNotes ? JSON.parse(savedNotes): []
+
 let editIndex = null
 
+function saveToLocalStorage() {
+     localStorage.setItem('notes',JSON.stringify(notes))
+}
 addBtn.addEventListener('click', () => {
     const title = titleInput.value
     const description = descriptionInput.value
@@ -27,6 +31,7 @@ addBtn.addEventListener('click', () => {
         editIndex = null
 
         addBtn.textContent = 'Add Note'
+        
     } else {
         const note = {
             title: title,
@@ -40,6 +45,7 @@ addBtn.addEventListener('click', () => {
     descriptionInput.value = ''
 
 
+    saveToLocalStorage()
     error.textContent = ''
     renderNotes()
 })
@@ -68,6 +74,7 @@ function renderNotes() {
         delBtn.addEventListener('click', () => {
             notes.splice(index, 1)
             renderNotes()
+            saveToLocalStorage()
         })
 
         // END DELETE BTN
@@ -91,7 +98,4 @@ function renderNotes() {
     }
     noteCount.textContent = notes.length
 }
-
-
-
 renderNotes()
